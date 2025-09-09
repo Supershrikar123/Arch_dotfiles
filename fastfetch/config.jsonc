@@ -1,0 +1,113 @@
+{
+  "logo": {
+    "source": "~/.config/fastfetch/img.jpg",
+    "type": "chafa",
+    "width": 25,
+    "height": 12,
+    "padding": {
+      "top": 1,
+      "left": 3,
+      "right": 3
+    }
+  },
+  "display": {
+    "separator": ": ",
+    "color": {
+      "keys": "blue",
+      "title": "blue"
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "color": {
+        "user": "blue",
+        "at": "white", 
+        "host": "cyan"
+      }
+    },
+    {
+      "type": "separator",
+      "string": "─────────────────────────────────"
+    },
+    {
+      "type": "os",
+      "key": "OS",
+      "format": "{3} {12}"
+    },
+    {
+      "type": "host", 
+      "key": "Host"
+    },
+    {
+      "type": "kernel",
+      "key": "Kernel",
+      "format": "{1} {2}"
+    },
+    {
+      "type": "uptime",
+      "key": "Uptime"
+    },
+    {
+      "type": "packages",
+      "key": "Packages"
+    },
+    {
+      "type": "shell",
+      "key": "Shell",
+      "format": "{3} {4}"
+    },
+    {
+      "type": "display",
+      "key": "Resolution"
+    },
+    {
+      "type": "wm", 
+      "key": "WM"
+    },
+    {
+      "type": "theme",
+      "key": "Theme"
+    },
+    {
+      "type": "icons",
+      "key": "Icons"
+    },
+    {
+      "type": "terminal",
+      "key": "Terminal"
+    },
+    {
+      "type": "cpu",
+      "key": "CPU",
+      "showPeCoreCount": true,
+      "temp": false
+    },
+    {
+      "type": "gpu",
+      "key": "GPU",
+      "hideType": "integrated"
+    },
+    {
+      "type": "memory",
+      "key": "Memory",
+      "format": "{} / {} ({3})"
+    },
+    {
+      "type": "disk",
+      "key": "Disk",
+      "folders": ["/"],
+      "format": "{} / {} ({9})"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "paddingLeft": 2,
+      "block": {
+        "width": 3,
+        "height": 1
+      }
+    }
+  ]
+}

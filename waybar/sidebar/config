@@ -1,0 +1,14 @@
+{
+  "position": "left",
+  "layer": "top",
+  "width": 350,
+  "modules-left": ["cpu", "memory"], 
+  "modules-center": [],
+  "modules-right": [],
+
+  "cpu": {
+        "format": " [   (usage)% ]",
+        "interval": 2
+  }
+
+}

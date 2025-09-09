@@ -1,0 +1,88 @@
+* {
+    /* Colors */
+    background-color: #22333b;
+    text-color: #9cdef2;
+    selected-background: #2a4049;
+    selected-text: #9cdef2;
+    border-color: #9cdef2;
+    
+    /* Font */
+    font: "JetBrains Mono 12";
+}
+
+window {
+    background-color: @background-color;
+    border: 2px solid;
+    border-color: @border-color;
+    border-radius: 8px;
+    padding: 20px;
+    width: 600px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 20px;
+}
+
+inputbar {
+    background-color: transparent;
+    border: 0px 0px 2px 0px;
+    border-color: @border-color;
+    padding: 10px 0px;
+    margin: 0px 0px 10px 0px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @text-color;
+    padding: 0px 10px 0px 0px;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @text-color;
+    placeholder-color: #5a6b73;
+}
+
+listview {
+    background-color: transparent;
+    lines: 8;
+    scrollbar: false;
+    spacing: 2px;
+}
+
+element {
+    background-color: transparent;
+    text-color: @text-color;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+element selected {
+    background-color: @selected-background;
+    text-color: @selected-text;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 24px;
+    padding: 0px 8px 0px 0px;
+}
+
+message {
+    background-color: transparent;
+    padding: 10px;
+    border: 1px solid;
+    border-color: @border-color;
+    border-radius: 4px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @text-color;
+}

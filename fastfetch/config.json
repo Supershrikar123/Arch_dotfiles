@@ -1,0 +1,8 @@
+{
+  "modules": [
+    "title",
+    "os",
+    "kernel", 
+    "memory"
+  ]
+}

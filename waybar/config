@@ -1,0 +1,124 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 12,
+  "margin-bottom": -8,
+  "width": 2535,
+  "height": 38,
+
+  "modules-left": [
+    "custom/power",
+    "bluetooth",
+    "custom/microphone",
+    "tray"
+  ],
+
+  "modules-center": [
+    "clock"
+    
+  ],
+
+  "modules-right": [
+     "hyprland/workspaces",
+    "custom/search",
+    "custom/volume"
+   
+  ],
+
+  "clock": {
+    "tooltip-format": "{calendar}",
+    "format-alt": "  {:%a, %d %b %Y}",
+    "format": "[   {:%I:%M %p} ]"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    },
+    "on-click": "activate"
+  },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": [
+      "[ 󰤯 ]",
+      "[ 󰤟 ]",
+      "[ 󰤢 ]",
+      "[ 󰤥 ]",
+      "[ 󰤨 ]"
+    ],
+    "format-ethernet": "󰀂",
+    "format-alt": "󱛇",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "nm-connection-editor",
+    "interval": 5,
+    "nospacing": 1
+  },
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": " {layout}"
+  },
+  "tray": {
+    "icon-size": 16,
+    "max-length": 20,
+    "order": []
+  },
+  "bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+      "enabled": "[  ]",
+      "disabled": "[ 󰂲 ]"
+    },
+    "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+    "tooltip-format": "Bluetooth is {status}",
+    "interval": 5
+  },
+  "custom/microphone": {
+    "exec": "~/.config/waybar/scripts/mic.sh",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "Mic Toggle",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  },
+  "custom/volume": {
+    "exec": "~/.config/waybar/scripts/volume.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+  "custom/search": {
+    "format": "[   ]",
+    "on-click": "rofi -show drun"
+  },
+  "custom/vpn": {
+    "exec": "~/.config/waybar/scripts/nordvpn-status.sh",
+    "interval": 5,
+    "on-click": "~/.config/waybar/scripts/nordvpn-toggle.sh",
+    "format": "{}",
+    "markup": "pango",
+    "tooltip": true,
+    "tooltip-format": "VPN Status / Toggle"
+  },
+  "custom/power": {
+    "format": "[ 󰣇 ]",
+    "tooltip": true,
+    "tooltip-format": "Power Menu",
+    "on-click": "~/.config/waybar/scripts/powermenu.sh"
+  },
+  "custom/squares": {
+    "format": " ",
+    "tooltip": false
+  }
+}
