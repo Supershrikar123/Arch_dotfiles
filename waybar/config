@@ -74,14 +74,10 @@
     "order": []
   },
   "bluetooth": {
-    "format": "{icon}",
-    "format-icons": {
-      "enabled": "[  ]",
-      "disabled": "[ 󰂲 ]"
-    },
-    "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
-    "tooltip-format": "Bluetooth is {status}",
-    "interval": 5
+    "format": "󰂯 {status}",
+    "format-disabled": "󰂲 Off",
+    "tooltip-format": "Bluetooth: {status}",
+    "on-click": "/home/supershrikar/.config/waybar/scripts/bluetooth-toggle.sh"
   },
   "custom/microphone": {
     "exec": "~/.config/waybar/scripts/mic.sh",
