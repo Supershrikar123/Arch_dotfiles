@@ -1,0 +1,461 @@
+/**
+ * @name Waybar Blue Stable
+ * @author Shrikar
+ * @description Stable Waybar/Hyprland inspired Discord theme with fewer UI glitches
+ * @version 1.2.0
+ */
+
+/* =========================================================
+   WAYBAR BLUE VARIABLES
+   ========================================================= */
+
+:root {
+  --wb-bg: #22333b;
+  --wb-bg-2: #1f2d34;
+  --wb-bg-3: #19242a;
+  --wb-bg-4: #172027;
+
+  --wb-hover: #3f4e64;
+  --wb-hover-soft: rgba(63, 78, 100, 0.45);
+
+  --wb-blue: #61afef;
+  --wb-cyan: #56b6c2;
+  --wb-text: #9cdef2;
+  --wb-muted: #78bec7;
+  --wb-orange: #fab387;
+  --wb-red: #e06c75;
+  --wb-green: #98c379;
+
+  --wb-border: rgba(97, 175, 239, 0.35);
+  --wb-border-strong: rgba(97, 175, 239, 0.75);
+
+  --wb-radius: 6px;
+  --wb-radius-small: 4px;
+
+  --font-primary: "JetBrainsMono Nerd Font", "JetBrains Mono", "Inter", sans-serif;
+  --font-display: "JetBrainsMono Nerd Font", "JetBrains Mono", "Inter", sans-serif;
+  --font-code: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+}
+
+/* =========================================================
+   DISCORD THEME VARIABLES
+   This is the stable part. We theme Discord using variables
+   instead of forcing random class backgrounds.
+   ========================================================= */
+
+.theme-dark,
+.visual-refresh.theme-dark {
+  --background-primary: var(--wb-bg);
+  --background-secondary: var(--wb-bg-2);
+  --background-secondary-alt: var(--wb-bg-3);
+  --background-tertiary: var(--wb-bg-4);
+  --background-accent: var(--wb-blue);
+  --background-floating: var(--wb-bg-3);
+  --background-nested-floating: var(--wb-bg-2);
+
+  --bg-base-primary: var(--wb-bg);
+  --bg-base-secondary: var(--wb-bg-2);
+  --bg-base-tertiary: var(--wb-bg-3);
+  --bg-surface-overlay: var(--wb-bg-2);
+  --bg-surface-raised: var(--wb-bg-2);
+  --bg-surface-high: var(--wb-bg);
+  --bg-surface-higher: var(--wb-bg-2);
+  --bg-surface-highest: var(--wb-bg-3);
+
+  --chat-background-default: var(--wb-bg);
+  --channeltextarea-background: var(--wb-bg-3);
+  --input-background: var(--wb-bg-3);
+
+  --modal-background: var(--wb-bg);
+  --modal-footer-background: var(--wb-bg-2);
+
+  --text-normal: var(--wb-text);
+  --text-muted: var(--wb-muted);
+  --text-link: var(--wb-blue);
+  --header-primary: #d7f3fb;
+  --header-secondary: var(--wb-muted);
+
+  --interactive-normal: var(--wb-text);
+  --interactive-hover: var(--wb-blue);
+  --interactive-active: var(--wb-orange);
+  --interactive-muted: #52636b;
+
+  --channels-default: var(--wb-muted);
+  --channel-icon: var(--wb-muted);
+
+  --brand-experiment: var(--wb-blue);
+  --brand-experiment-hover: var(--wb-cyan);
+  --brand-500: var(--wb-blue);
+  --brand-560: var(--wb-cyan);
+
+  --status-positive: var(--wb-green);
+  --status-warning: var(--wb-orange);
+  --status-danger: var(--wb-red);
+
+  --background-modifier-hover: rgba(63, 78, 100, 0.45);
+  --background-modifier-active: rgba(97, 175, 239, 0.16);
+  --background-modifier-selected: rgba(97, 175, 239, 0.2);
+  --background-modifier-accent: rgba(97, 175, 239, 0.18);
+
+  --border-faint: rgba(97, 175, 239, 0.16);
+  --border-subtle: rgba(97, 175, 239, 0.28);
+  --border-normal: rgba(97, 175, 239, 0.35);
+  --border-strong: rgba(97, 175, 239, 0.55);
+
+  --scrollbar-thin-thumb: rgba(97, 175, 239, 0.75);
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-thumb: rgba(97, 175, 239, 0.75);
+  --scrollbar-auto-track: var(--wb-bg-3);
+
+  --mention-background: rgba(250, 179, 135, 0.12);
+  --mention-foreground: var(--wb-orange);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+body,
+#app-mount {
+  background: var(--wb-bg-3) !important;
+  color: var(--wb-text) !important;
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Inter", sans-serif !important;
+}
+
+/* Important: no global borders, no global min-height, no global opacity */
+
+/* =========================================================
+   APP BACKGROUND FIX
+   Prevents black holes behind Discord panels.
+   ========================================================= */
+
+#app-mount,
+#app-mount > div {
+  background-color: var(--wb-bg-3) !important;
+}
+
+/* These are high-level only. Avoid broad container selectors. */
+[class^="app_"],
+[class*=" app_"],
+[class^="bg_"],
+[class*=" bg_"] {
+  background-color: var(--wb-bg-3) !important;
+}
+
+/* =========================================================
+   CHANNEL / SERVER / MEMBER HOVER
+   ========================================================= */
+
+[class^="link_"]:hover,
+[class*=" link_"]:hover,
+[class^="interactive_"]:hover,
+[class*=" interactive_"]:hover {
+  background-color: var(--wb-hover-soft) !important;
+  color: var(--wb-blue) !important;
+}
+
+[class^="modeSelected_"] [class^="link_"],
+[class*=" modeSelected_"] [class*="link_"],
+[class^="interactiveSelected_"],
+[class*=" interactiveSelected_"] {
+  background-color: rgba(97, 175, 239, 0.18) !important;
+  color: var(--wb-orange) !important;
+}
+
+/* =========================================================
+   CHAT MESSAGES
+   ========================================================= */
+
+[class^="message_"]:hover,
+[class*=" message_"]:hover {
+  background-color: rgba(63, 78, 100, 0.32) !important;
+}
+
+[class^="username_"],
+[class*=" username_"] {
+  color: var(--wb-blue);
+}
+
+[class^="timestamp_"],
+[class*=" timestamp_"] {
+  color: var(--wb-muted) !important;
+}
+
+[class^="markup_"],
+[class*=" markup_"] {
+  color: var(--wb-text) !important;
+}
+
+[class^="mentioned_"],
+[class*=" mentioned_"] {
+  background-color: rgba(250, 179, 135, 0.1) !important;
+  border-left: 3px solid var(--wb-orange) !important;
+}
+
+/* =========================================================
+   MESSAGE INPUT
+   ========================================================= */
+
+[class^="channelTextArea_"] [class^="scrollableContainer_"],
+[class*=" channelTextArea_"] [class*="scrollableContainer_"] {
+  background-color: var(--wb-bg-3) !important;
+  border: 1px solid var(--wb-border) !important;
+  border-radius: var(--wb-radius) !important;
+}
+
+[class^="channelTextArea_"] [class^="scrollableContainer_"]:focus-within,
+[class*=" channelTextArea_"] [class*="scrollableContainer_"]:focus-within {
+  border-color: var(--wb-border-strong) !important;
+}
+
+[class^="placeholder_"],
+[class*=" placeholder_"] {
+  color: var(--wb-muted) !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button {
+  border-radius: var(--wb-radius-small) !important;
+}
+
+[class^="lookFilled_"],
+[class*=" lookFilled_"] {
+  background-color: #2b3f49 !important;
+  color: var(--wb-text) !important;
+}
+
+[class^="lookFilled_"]:hover,
+[class*=" lookFilled_"]:hover {
+  background-color: var(--wb-hover) !important;
+  color: var(--wb-blue) !important;
+}
+
+[class^="lookOutlined_"],
+[class*=" lookOutlined_"] {
+  border-color: var(--wb-border) !important;
+  color: var(--wb-blue) !important;
+}
+
+[class^="lookOutlined_"]:hover,
+[class*=" lookOutlined_"]:hover {
+  border-color: var(--wb-cyan) !important;
+  color: var(--wb-cyan) !important;
+}
+
+/* =========================================================
+   USER PANEL
+   ========================================================= */
+
+[class^="panels_"],
+[class*=" panels_"] {
+  background-color: var(--wb-bg-3) !important;
+  border-top: 1px solid var(--wb-border) !important;
+}
+
+[class^="panels_"] button,
+[class*=" panels_"] button {
+  color: var(--wb-blue) !important;
+}
+
+[class^="panels_"] button:hover,
+[class*=" panels_"] button:hover {
+  background-color: var(--wb-hover-soft) !important;
+  color: var(--wb-orange) !important;
+}
+
+/* =========================================================
+   SEARCH / MENUS / POPOUTS
+   Keep this conservative to avoid black popout glitches.
+   ========================================================= */
+
+[class^="menu_"],
+[class*=" menu_"],
+[class^="autocomplete_"],
+[class*=" autocomplete_"],
+[class^="messagesPopoutWrap_"],
+[class*=" messagesPopoutWrap_"] {
+  background-color: var(--wb-bg-2) !important;
+  color: var(--wb-text) !important;
+  border: 1px solid var(--wb-border) !important;
+  border-radius: var(--wb-radius) !important;
+}
+
+[class^="item_"]:hover,
+[class*=" item_"]:hover,
+[class^="option_"]:hover,
+[class*=" option_"]:hover {
+  background-color: var(--wb-hover-soft) !important;
+  color: var(--wb-blue) !important;
+}
+
+[class^="searchBar_"],
+[class*=" searchBar_"] {
+  background-color: var(--wb-bg-3) !important;
+  border-radius: var(--wb-radius-small) !important;
+}
+
+/* =========================================================
+   SETTINGS PAGE
+   ========================================================= */
+
+[class^="standardSidebarView_"],
+[class*=" standardSidebarView_"] {
+  background-color: var(--wb-bg) !important;
+}
+
+[class^="side_"] [class^="item_"]:hover,
+[class*=" side_"] [class*="item_"]:hover {
+  background-color: var(--wb-hover-soft) !important;
+  color: var(--wb-blue) !important;
+}
+
+[class^="side_"] [class^="selected_"],
+[class*=" side_"] [class*="selected_"] {
+  background-color: rgba(97, 175, 239, 0.18) !important;
+  color: var(--wb-orange) !important;
+}
+
+/* =========================================================
+   BETTERDISCORD SETTINGS
+   ========================================================= */
+
+.bd-addon-card,
+.bd-setting-item,
+.bd-search-wrapper,
+.bd-select,
+.bd-addon-header {
+  background-color: var(--wb-bg-2) !important;
+  border: 1px solid var(--wb-border) !important;
+  border-radius: var(--wb-radius) !important;
+  color: var(--wb-text) !important;
+}
+
+.bd-addon-card:hover {
+  border-color: var(--wb-border-strong) !important;
+}
+
+.bd-button {
+  background-color: #2b3f49 !important;
+  color: var(--wb-blue) !important;
+  border: 1px solid var(--wb-border) !important;
+  border-radius: var(--wb-radius-small) !important;
+}
+
+.bd-button:hover {
+  background-color: var(--wb-hover) !important;
+  color: var(--wb-cyan) !important;
+  border-color: var(--wb-cyan) !important;
+}
+
+.bd-button.bd-button-danger {
+  background-color: rgba(224, 108, 117, 0.16) !important;
+  color: var(--wb-red) !important;
+  border-color: var(--wb-red) !important;
+}
+
+/* =========================================================
+   CODE BLOCKS / EMBEDS
+   ========================================================= */
+
+code,
+pre,
+.hljs {
+  background-color: var(--wb-bg-3) !important;
+  color: var(--wb-cyan) !important;
+  border-radius: var(--wb-radius-small) !important;
+}
+
+pre {
+  border: 1px solid var(--wb-border) !important;
+}
+
+/* Do not target every embed class. Only the full embed container. */
+[class^="embedFull_"],
+[class*=" embedFull_"] {
+  background-color: var(--wb-bg-2) !important;
+  border-left-color: var(--wb-blue) !important;
+}
+
+/* =========================================================
+   LINKS / MENTIONS
+   ========================================================= */
+
+a,
+[class^="anchor_"],
+[class*=" anchor_"] {
+  color: var(--wb-blue) !important;
+}
+
+a:hover,
+[class^="anchor_"]:hover,
+[class*=" anchor_"]:hover {
+  color: var(--wb-cyan) !important;
+}
+
+.mention {
+  background-color: rgba(97, 175, 239, 0.18) !important;
+  color: var(--wb-blue) !important;
+  border-radius: var(--wb-radius-small) !important;
+}
+
+/* =========================================================
+   SCROLLBARS
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(97, 175, 239, 0.65) !important;
+  border-radius: var(--wb-radius) !important;
+  border: 2px solid var(--wb-bg-3) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--wb-cyan) !important;
+}
+
+/* =========================================================
+   TOOLTIPS
+   ========================================================= */
+
+[class^="tooltip_"],
+[class*=" tooltip_"] {
+  background-color: #3b4252 !important;
+  color: var(--wb-cyan) !important;
+  border: 1px solid var(--wb-border) !important;
+  border-radius: var(--wb-radius-small) !important;
+}
+
+/* =========================================================
+   NOTIFICATION BADGES
+   ========================================================= */
+
+[class^="numberBadge_"],
+[class*=" numberBadge_"],
+[class^="iconBadge_"],
+[class*=" iconBadge_"] {
+  background-color: var(--wb-red) !important;
+  color: white !important;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background-color: var(--wb-blue) !important;
+  color: var(--wb-bg-3) !important;
+}

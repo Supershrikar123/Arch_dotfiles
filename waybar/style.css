@@ -1,4 +1,4 @@
-waybar * {
+* {
   border: 4px;
   border-radius: 4px;
   min-height: 0;
@@ -25,21 +25,17 @@ window#waybar {
 #custom-microphone,
 #bluetooth,
 #custom-bluetooth,
-#custom-brightness,
 #custom-volume,
-#custom-battery,
 #custom-power,
-#custom-asus-profile,
 #network,
 #battery,
 #pulseaudio,
 #backlight,
-#custom-vpn,
 #clock,
 #custom-search,
 #tray {
-  padding: 6px 12px;
-  margin: 6px 6px;
+  padding: 4px 10px;
+  margin: 4px 4px;
   background-color: #22333b;
   border: 2px solid #61afef;
   border-radius: 2px;
@@ -49,15 +45,15 @@ window#waybar {
   background-color: transparent;
 }
 
-#workspaces button{
+#workspaces button {
   all: initial;
   min-width: 0;
   box-shadow: inherit;
-  padding: 6px 12px;
-  margin: 6px 6px;
+  padding: 4px 10px;
+  margin: 4px 4px;
   background-color: #22333b;
   border: 2px solid #61afef;
-  color:#61afef;
+  color: #61afef;
   border-radius: 2px;
 }
 
@@ -70,9 +66,9 @@ window#waybar {
 }
 
 #workspaces button.active{
+  border: 2px solid #fab387;
   color: #fab387;
 }
-
 
 #pulseaudio.muted {
   background-color: #f38ba8;
@@ -182,3 +178,4 @@ tooltip {
 tooltip label {
   color: #78bec7;
 }
+

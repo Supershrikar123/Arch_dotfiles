@@ -1,57 +1,81 @@
-# ─────────────────────────────────────────────────────────────────────────
-#  °˖* ૮(  • ᴗ ｡)っ🍸  pewdiepie/archdaemon/dionysh shhheersh
-#  Nord-inspired, neon-accent terminal theme
-#  vers. 1.0.0
-# ─────────────────────────────────────────────────────────────────────────
+# ==============================================================================
+# Alacritty Configuration (Nord Neon Dual-Accent Custom)
+# ==============================================================================
 
-# ── Cursor & Selection Colours ───────────────────────────────────────────
-[colors.cursor]
-cursor = "#528bff"
-text   = "#9cdef2"
+[window]
+padding = { x = 12, y = 12 }
+dynamic_title = true
 
-[colors.selection]
-text       = "#61afef"
-background = "#22333b"
-
-# ── Primary Colours ───────────────────────────────────────────────────────
-[colors.primary]
-background = "#22333b"
-foreground = "#9cdef2"
-
-# ── Normal Palette (ANSI) ────────────────────────────────────────────────
-[colors.normal]
-black   = "#282c34"
-red     = "#e06c75"
-green   = "#9cdef2"
-yellow  = "#e5c07b"
-blue    = "#61afef"
-magenta = "#c678dd"
-cyan    = "#9cdef2"
-white   = "#828997"
-
-# ── Font Settings ────────────────────────────────────────────────────────
 [font]
-size = 11.0
-
-[font.bold]
-family = "Gohu GohuFont"
-style  = "Bold"
-
-[font.bold_italic]
-family = "Gohu GohuFont"
-style  = "Bold Italic"
-
-[font.italic]
-family = "Gohu GohuFont"
-style  = "Italic"
+size = 15.0
 
 [font.normal]
-family = "Gohu GohuFont"
-style  = "Regular"
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
 
-# ── Mouse & Environment ───────────────────────────────────────────────────
-[mouse]
-hide_when_typing = true
+[font.offset]
+x = 0
+y = 0
 
-[env]
-TERM = "xterm-256color"
+# ==============================================================================
+# Color Scheme: Neon Blue & Light Pink (#FFC0CB) Integration
+# ==============================================================================
+
+[colors.primary]
+background = "#22333b"
+foreground = "#9cdef2"   # Base text colors default to your Neon Blue
+
+[colors.cursor]
+cursor = "#528bff"       # Restored your original blue cursor style from the start
+text = "#22333b"
+
+# Standard ANSI blocks - Used for core syntax, file trees, and system text
+[colors.normal]
+black   = "#282c34"
+red     = "#FFC0CB"   # Exact Pink mapped for errors/git deletions
+green   = "#9cdef2"   # Neon Blue
+yellow  = "#e5c07b"
+blue    = "#61afef"
+magenta = "#FFC0CB"   # Exact Pink mapped for keywords/special tokens
+cyan    = "#9cdef2"   # Neon Blue
+white   = "#828997"
+
+# Bright ANSI blocks - Used for highlighted words, alerts, and active CLI text
+[colors.bright]
+black   = "#3a404b"
+red     = "#FFC0CB"   # Exact Pink mapped for bright alerts
+green   = "#b3ecff"
+yellow  = "#ffd38a"
+blue    = "#7dc1ff"
+magenta = "#FFC0CB"   # Exact Pink mapped for bright variables/functions
+cyan    = "#b6f4ff"
+white   = "#d8dee9"
+
+# ==============================================================================
+# Key Bindings
+# ==============================================================================
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "Equals"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Control"
+action = "ResetFontSize"
